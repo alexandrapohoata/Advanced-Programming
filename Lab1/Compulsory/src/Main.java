@@ -23,7 +23,7 @@ public class Main {
 
         // Step 2
         int nr = sumDigits(991);
-        System.out.println("Suma cifrelor nr. 99 este " + nr);
+        System.out.println("Suma cifrelor nr. 991 este " + nr);
 
         int result = computeResult(n);
         System.out.println("Willy-nilly, this semester I will learn " + languages[result]);
