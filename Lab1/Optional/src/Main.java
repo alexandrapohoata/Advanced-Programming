@@ -12,7 +12,11 @@ Launch the application from the command line, for example: java Lab1 100.
  */
 
 public class Main {
-    private static double probabilitate = 0.13;
+    private static double probabilitate = 0.63;
+
+    // in array-ul noduri vom retine componenta conexa a grafului
+    private static int[] noduri = new int[100];
+    private static int total_noduri = 0;
 
     public static void main(String[] args) {
         int n = 0;
@@ -45,13 +49,13 @@ public class Main {
                 }
             }
 
-//            System.out.println("Matricea generata este:");
-//            for (int i = 0; i < n; i++) {
-//                for (int j = 0; j < n; j++) {
-//                    System.out.print(matrice[i][j] + " ");
-//                }
-//                System.out.println();
-//            }
+            System.out.println("Matricea generata este:");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    System.out.print(matrice[i][j] + " ");
+                }
+                System.out.println();
+            }
             System.out.println("Componentele conexe sunt: ");
 
             // verific daca este conex
@@ -60,7 +64,7 @@ public class Main {
             else {
                 System.out.println("Graful este conex.");
 
-                
+                buildPartialTree(n);
             }
         }
     }
@@ -70,6 +74,7 @@ public class Main {
         visited[nod] = true;
         if (!discovered[nod]) {
             System.out.print(nod + " ");
+            noduri[total_noduri++] = nod;
             isConnected++;
         }
 
@@ -97,6 +102,22 @@ public class Main {
         }
 
         return isConnected == 0;
+    }
+
+    private static void buildPartialTree(int n) {
+        int[][] partialTree = new int[n][n];
+        for (int nod = 0; nod < n-1; nod++) {
+            partialTree[noduri[nod]][noduri[nod+1]] = 1;
+            //partialTree[noduri[nod-1]][noduri[nod]] = 1;
+        }
+
+        System.out.println("Graful partial este: ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(partialTree[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
 
