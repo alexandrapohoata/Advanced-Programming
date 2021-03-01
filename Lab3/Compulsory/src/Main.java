@@ -5,71 +5,71 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] arggs) {
-        Museum v2 = new Museum();
-        v2.setOpeningTime(LocalTime.of(9, 30));
-        v2.setClosingTime(LocalTime.parse("17:00"));
-        v2.setTicketPrice(20);
-        v2.setName("Museum A");
+        Museum museum1 = new Museum();
+        museum1.setOpeningTime(LocalTime.of(9, 30));
+        museum1.setClosingTime(LocalTime.parse("17:00"));
+        museum1.setTicketPrice(20);
+        museum1.setName("Museum A");
 
-        Church v4 = new Church();
-        v4.setOpeningTime(LocalTime.of(7, 0));
-        v4.setClosingTime(LocalTime.MIDNIGHT);
-        v4.setName("Church A");
+        Church church1 = new Church();
+        church1.setOpeningTime(LocalTime.of(7, 0));
+        church1.setClosingTime(LocalTime.MIDNIGHT);
+        church1.setName("Church A");
 
-        Hotel v1 = new Hotel();
-        v1.setName("Hotel");
+        Hotel hotel1 = new Hotel();
+        hotel1.setName("Hotel");
 
-        Museum v3 = new Museum();
-        v3.setName("Muesum B");
-        v3.setOpeningTime(LocalTime.parse("10:00"));
-        v3.setClosingTime(LocalTime.parse("16:30"));
-        v3.setTicketPrice(15);
+        Museum museum2 = new Museum();
+        museum2.setName("Muesum B");
+        museum2.setOpeningTime(LocalTime.parse("10:00"));
+        museum2.setClosingTime(LocalTime.parse("16:30"));
+        museum2.setTicketPrice(15);
 
-        Church v5 = new Church();
-        v5.setOpeningTime(LocalTime.parse("07:30"));
-        v5.setClosingTime(LocalTime.NOON);
-        v5.setName("Church B");
+        Church church2 = new Church();
+        church2.setOpeningTime(LocalTime.parse("07:30"));
+        church2.setClosingTime(LocalTime.NOON);
+        church2.setName("Church B");
 
-        Restaurant v6 = new Restaurant();
-        v6.setName("Restaurant");
+        Restaurant restaurant1 = new Restaurant();
+        restaurant1.setName("Restaurant");
 
         //Creez un obiect de tipul City unde adaug locatiile de mai sus
         City city = new City("Iasi");
-        city.addLocation(v2);
-        city.addLocation(v4);
-        city.addLocation(v1);
-        city.addLocation(v3);
-        city.addLocation(v5);
-        city.addLocation(v6);
+        city.addLocation(museum1);
+        city.addLocation(church1);
+        city.addLocation(hotel1);
+        city.addLocation(museum2);
+        city.addLocation(church2);
+        city.addLocation(restaurant1);
 
         //am un array de locatii Visitable
-        Visitable[] arr = {v2, v4, v5, v3};
+        Visitable[] arr = {museum1, church1, church2, museum2};
         System.out.println(Arrays.toString(arr)); //afisez locatiile
 
         //Intervalul de timp (cost) de la o locatile la alta
         Map<Location, Integer> cost = new HashMap<>();
-        cost.put(v2, 10);
-        cost.put(v3, 50);
-        v1.setCost(cost);
+        cost.put(museum1, 10);
+        cost.put(museum2, 50);
+        hotel1.setCost(cost);
 
         cost = new HashMap<>();
-        cost.put(v3, 20);
-        cost.put(v4, 20);
-        cost.put(v5, 10);
-        v2.setCost(cost);
+        cost.put(museum2, 20);
+        cost.put(church1, 20);
+        cost.put(church2, 10);
+        museum1.setCost(cost);
 
         cost = new HashMap<>();
-        cost.put(v4, 20);
-        v3.setCost(cost);
+        cost.put(church1, 20);
+        museum2.setCost(cost);
 
         cost = new HashMap<>();
-        cost.put(v5, 30);
-        cost.put(v6, 10);
-        v4.setCost(cost);
+        cost.put(church2, 30);
+        cost.put(restaurant1, 10);
+        church1.setCost(cost);
 
         cost = new HashMap<>();
-        cost.put(v6, 20);
-        v5.setCost(cost);
+        cost.put(restaurant1, 20);
+        church2.setCost(cost);
 
         System.out.println(city);
 
