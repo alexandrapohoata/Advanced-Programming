@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -76,6 +77,8 @@ public class Main {
         travelPlan.getShortestPath();
         System.out.println("Locatiile care pot fi vizitate ordonate dupa timpul de deschidere:");
         city.displayLocations();
+        Duration interval = Visitable.getVisitingDuration(museum1);
+        System.out.println("Intervalul de timp in care muzeul + " + museum1.getName() + " este de " + interval);
     }
 }
 

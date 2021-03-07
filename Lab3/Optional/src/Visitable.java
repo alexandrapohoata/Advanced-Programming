@@ -13,9 +13,8 @@ public interface Visitable {
         return LocalTime.parse("20:00");
     }
 
-    static Duration getVisitingDuration(Location location) {
-        Duration duration = null;
-        return duration;
+    static Duration getVisitingDuration(Visitable obj) {
+        return Duration.between(obj.getOpeningTime(), obj.getClosingTime());
     }
 }
 
