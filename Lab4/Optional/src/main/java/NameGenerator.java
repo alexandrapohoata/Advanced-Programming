@@ -5,7 +5,7 @@ import java.util.*;
 
 public class NameGenerator
 {
-    private List<Student> StudentList()
+    private List<Student> studentList()
     {
         List<Student> listWithFakeNames = new ArrayList<>();
         int randomNumberOfStudents = (int)((Math.random() * 10) + 10)/2;
@@ -20,7 +20,7 @@ public class NameGenerator
         return listWithFakeNames;
     }
 
-    private List<School> SchoolList()
+    private List<School> schoolList()
     {
         List<School> listWithFakeNames = new ArrayList<>();
         int randomNumberOfSchools = (int)(Math.random() * 10) + 1;
@@ -45,8 +45,8 @@ public class NameGenerator
         int randomNumberOfSchools;
         int i;
 
-        List<School> tempList = SchoolList();
-        for(i = 0; i < SchoolList().size(); i++)
+        List<School> tempList = schoolList();
+        for(i = 0; i < schoolList().size(); i++)
         {
             randomNumberOfSchools = (int)(Math.random() * 10 + 1);
 
@@ -59,7 +59,7 @@ public class NameGenerator
                 tempList2.add(tempList.get(j));
 
             // adaugam in map numele Studentului si lista scolilor
-            studsPrefMap.put(StudentList().get(i), tempList2);
+            studsPrefMap.put(studentList().get(i), tempList2);
         }
         return studsPrefMap;
     }
