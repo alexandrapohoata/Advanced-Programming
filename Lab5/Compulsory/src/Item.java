@@ -1,13 +1,10 @@
 public abstract class Item {
     private String name;
-    private String author;
-    private String releaseYear;
     private String pathName;
 
-    public Item(String name, String author, String releaseYear) {
+    public Item(String name, String pathName) {
         this.name = name;
-        this.author = author;
-        this.releaseYear = releaseYear;
+        this.pathName = pathName;
     }
 
     public String getName() {
@@ -18,21 +15,6 @@ public abstract class Item {
         this.name = name;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getReleaseYear() {
-        return releaseYear;
-    }
-
-    public void setReleaseYear(String releaseYear) {
-        this.releaseYear = releaseYear;
-    }
 
     public String getPathName() {
         return pathName;

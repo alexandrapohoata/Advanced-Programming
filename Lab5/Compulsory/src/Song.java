@@ -1,9 +1,11 @@
 public class Song extends Item {
+    private String author;
+    private String releaseYear;
     private int nrMinutes;
     private int views;
 
-    public Song(String name, String author, String releaseYear) {
-        super(name, author, releaseYear);
+    public Song(String name, String pathName) {
+        super(name, pathName);
     }
 
     public int getNrMinutes() {

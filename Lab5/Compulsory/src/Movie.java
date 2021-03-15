@@ -1,10 +1,27 @@
 public class Movie extends Item {
+    private String author;
+    private String releaseYear;
     private int length;
 
-    public Movie(String name, String author, String releaseYear) {
-        super(name, author, releaseYear);
+    public Movie(String name, String pathName) {
+        super(name, pathName);
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getReleaseYear() {
+        return releaseYear;
+    }
+
+    public void setReleaseYear(String releaseYear) {
+        this.releaseYear = releaseYear;
+    }
 
     public int getLength() {
         return length;

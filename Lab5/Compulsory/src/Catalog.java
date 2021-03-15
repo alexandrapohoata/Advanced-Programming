@@ -26,7 +26,7 @@ public class Catalog {
 
     public void list() {
         System.out.println("Catalogul contine urmatoarele articole: ");
-        itemList.forEach(item -> System.out.println(item.getName() +" author: " + item.getAuthor() + " pathName " + item.getPathName()));
+        itemList.forEach(item -> System.out.println(item.getName() + " pathName " + item.getPathName()));
     }
 
     public void play(Item item) throws IOException {
