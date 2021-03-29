@@ -45,20 +45,6 @@ public class DrawingPanel extends JPanel
         repaint();
     }
 
-    /**
-     * @return ultima figura desenata pt a-i da remove
-     */
-    public Shape removeLastShape()
-    {
-        int shapeCount = shapes.size();
-        Shape s = null;
-        if(shapeCount > 0)
-        {
-            s = shapes.get(shapeCount - 1);
-        }
-        return s;
-    }
-
     private void init()
     {
         setPreferredSize(new Dimension(W, H)); //don’t use setSize. Why?

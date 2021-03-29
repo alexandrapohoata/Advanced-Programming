@@ -125,14 +125,12 @@ public class ControlPanel extends JPanel implements ActionListener {
          */
         else if(actionEvent.getSource() == undoBtn)
         {
-            Shape shape = frame.canvas.removeLastShape();
-            if(shape != null) {
+            int size = frame.canvas.shapes.size();
+            if(size > 0) {
                 log.append("Succesfuly removed the last shape.\n");
-                frame.canvas.graphics.setColor(Color.white);
-                frame.canvas.graphics.fill(shape);
-                frame.canvas.shapes.remove(shape);
-                System.out.println(frame.canvas.shapes.size());
-                repaint();
+                frame.canvas.shapes.remove(frame.canvas.shapes.get(size - 1));
+                frame.canvas.repaint();
+                System.out.println(size);
             }
         }
     }
