@@ -3,10 +3,10 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
-        Connection connection = null;
         try {
             // creez conexiunea
-            connection = Database.getConnection();
+            Database db = Database.getInstance();
+            Connection connection = db.getConnection();
 
             // inserez in baza de date movies urmatoarele
             MovieController movieController = new MovieController(connection);
@@ -35,9 +35,6 @@ public class Main {
             System.out.println(name + " ID: " + genreController.findById(index));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } finally {
-            if (connection != null)
-                Database.closeConnection();
         }
         System.out.println("Goodbye!");
     }
