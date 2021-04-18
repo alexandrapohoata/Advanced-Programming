@@ -1,0 +1,25 @@
+CREATE TABLE movies(
+    id VARCHAR2(100) NOT NULL PRIMARY KEY,
+    title VARCHAR2(100) NOT NULL,
+    release_date VARCHAR2(100) NOT NULL,
+    duration VARCHAR2(100) NOT NULL,
+    score VARCHAR2(100) NOT NULL
+);
+
+CREATE TABLE genres(
+    name VARCHAR2(100) NOT NULL,
+    movie_id VARCHAR2(100) NOT NULL,
+    CONSTRAINT fk_movie_id FOREIGN KEY (movie_id) REFERENCES movies(id) ON DELETE CASCADE
+);
+
+CREATE TABLE movie_actors(
+    name VARCHAR2(32) NOT NULL,
+    movie_id VARCHAR2(100) NOT NULL,
+    CONSTRAINT fk_movie_id2 FOREIGN KEY (movie_id) REFERENCES movies(id) ON DELETE CASCADE
+);
+
+CREATE TABLE movie_directors(
+    name VARCHAR2(32) NOT NULL,
+    movie_id VARCHAR2(100) NOT NULL,
+    CONSTRAINT fk_movie_id3 FOREIGN KEY (movie_id) REFERENCES movies(id) ON DELETE CASCADE
+);
